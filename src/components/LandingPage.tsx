@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   FileText,
   Upload,
@@ -7,6 +7,8 @@ import {
   Zap,
   Shield,
   Clock,
+  Menu,
+  X,
 } from 'lucide-react';
 
 interface LandingPageProps {
@@ -15,12 +17,14 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
   const featuresRef = useRef<HTMLDivElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToFeatures = () => {
     featuresRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
+    setMobileMenuOpen(false);
   };
 
   const features = [
@@ -70,6 +74,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
             </span>
           </div>
 
+          {/* Desktop Nav */}
           <div className="hidden sm:flex items-center space-x-4">
             <button onClick={scrollToFeatures} className="nav-link text-sm">
               Features
@@ -85,15 +90,44 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
             </button>
           </div>
 
-          <div className="sm:hidden">
-            <button
-              onClick={onNavigateToChat}
-              className="btn-primary text-sm px-3 py-1.5"
-            >
-              Start
-            </button>
-          </div>
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(prev => !prev)}
+            className="sm:hidden p-2 rounded-lg border border-vintage-gray-300"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="sm:hidden mt-3 border-t border-vintage-gray-200 bg-vintage-white">
+            <div className="flex flex-col space-y-3 px-4 py-4">
+              <button
+                onClick={scrollToFeatures}
+                className="text-left nav-link text-sm"
+              >
+                Features
+              </button>
+              <button
+                onClick={scrollToFeatures}
+                className="text-left nav-link text-sm"
+              >
+                About
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onNavigateToChat();
+                }}
+                className="btn-primary text-sm w-full py-2"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -188,29 +222,31 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
         </div>
       </section>
 
-      {/* Footer - Responsive */}
-            <footer className="relative z-10 border-t border-vintage-gray-200 bg-vintage-white">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-                    <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-                        <div className="flex items-center space-x-2">
-                            <div className="w-5 h-5 bg-vintage-black rounded flex items-center justify-center">
-                                <FileText className="w-3 h-3 text-vintage-white" />
-                            </div>
-                            <span className="font-display font-medium text-vintage-black">OpenDoc</span>
-                        </div>
+      {/* Footer */}
+      <footer className="relative z-10 border-t border-vintage-gray-200 bg-vintage-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+            <div className="flex items-center space-x-2">
+              <div className="w-5 h-5 bg-vintage-black rounded flex items-center justify-center">
+                <FileText className="w-3 h-3 text-vintage-white" />
+              </div>
+              <span className="font-display font-medium text-vintage-black">
+                OpenDoc
+              </span>
+            </div>
 
-                        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-vintage-gray-600 text-center">
-                            <span>AI-Powered PDF Analysis</span>
-                            <span className="hidden sm:inline">•</span>
-                            <span>Built by Mozammil</span>
-                            <span className="hidden sm:inline">•</span>
-                            <span>© 2025</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-vintage-gray-600 text-center">
+              <span>AI-Powered PDF Analysis</span>
+              <span className="hidden sm:inline">•</span>
+              <span>Built by Mozammil</span>
+              <span className="hidden sm:inline">•</span>
+              <span>© 2025</span>
+            </div>
+          </div>
         </div>
-    );
+      </footer>
+    </div>
+  );
 };
 
 export default LandingPage;

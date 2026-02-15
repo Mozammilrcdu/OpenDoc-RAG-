@@ -234,7 +234,7 @@ Some suggestions:
                                 </div>
                                 <div>
                                     <h1 className="text-xl font-bold font-display tracking-vintage">
-                                        DocuBot
+                                        OpenDoc
                                     </h1>
                                     <p className="text-xs text-vintage-gray-500">
                                         AI-Powered PDF Analysis
