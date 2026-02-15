@@ -62,6 +62,62 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
 
   return (
     <div className="min-h-screen bg-vintage-white overflow-hidden">
+         {/* Enhanced Aesthetic Background Elements */}
+            <div className="fixed inset-0 pointer-events-none">
+                {/* Diagonal Lines - More and varied */}
+                <div className="absolute top-16 left-8 w-20 h-px bg-vintage-gray-300 rotate-45 opacity-50 animate-fade-in"></div>
+                <div className="absolute top-24 right-16 w-28 h-px bg-vintage-gray-300 -rotate-45 opacity-40 animate-fade-in animation-delay-200"></div>
+                <div className="absolute top-40 left-1/4 w-16 h-px bg-vintage-gray-300 rotate-12 opacity-35 animate-fade-in animation-delay-300"></div>
+                <div className="absolute bottom-32 left-16 w-24 h-px bg-vintage-gray-300 rotate-12 opacity-45 animate-fade-in animation-delay-500"></div>
+                <div className="absolute bottom-48 right-12 w-32 h-px bg-vintage-gray-300 -rotate-12 opacity-40 animate-fade-in animation-delay-700"></div>
+                <div className="absolute top-1/2 right-1/4 w-18 h-px bg-vintage-gray-300 rotate-75 opacity-30 animate-fade-in animation-delay-1000"></div>
+                <div className="absolute top-3/4 left-1/3 w-22 h-px bg-vintage-gray-300 -rotate-30 opacity-35 animate-fade-in animation-delay-500"></div>
+
+                {/* Horizontal Flowing Lines */}
+                <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-vintage-gray-300 to-transparent opacity-20 animate-fade-in animation-delay-300"></div>
+                <div className="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-vintage-gray-300 to-transparent opacity-15 animate-fade-in animation-delay-700"></div>
+
+                {/* Dotted Lines - Enhanced patterns */}
+                <div className="absolute top-1/4 left-1/4 flex space-x-1 animate-fade-in animation-delay-500">
+                    {[...Array(12)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-25"
+                            style={{ animationDelay: `${i * 0.08}s` }}></div>
+                    ))}
+                </div>
+                <div className="absolute top-2/3 right-1/4 flex space-x-1 animate-fade-in animation-delay-700">
+                    {[...Array(8)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-20"
+                            style={{ animationDelay: `${i * 0.12}s` }}></div>
+                    ))}
+                </div>
+                <div className="absolute top-1/2 left-8 flex space-x-1 rotate-90 animate-fade-in animation-delay-300">
+                    {[...Array(6)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-30"></div>
+                    ))}
+                </div>
+
+                {/* Vertical Dotted Lines */}
+                <div className="absolute top-1/3 left-1/2 flex flex-col space-y-1 animate-fade-in animation-delay-500">
+                    {[...Array(8)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-15"></div>
+                    ))}
+                </div>
+                <div className="absolute top-1/4 right-1/3 flex flex-col space-y-1 animate-fade-in animation-delay-700">
+                    {[...Array(6)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-25"></div>
+                    ))}
+                </div>
+
+                {/* Corner and Scattered Decorative Elements */}
+                <div className="absolute top-20 right-20 w-8 h-8 border border-vintage-gray-300 rounded-full opacity-25 animate-vintage-pulse"></div>
+                <div className="absolute bottom-24 left-20 w-6 h-6 border border-vintage-gray-300 rotate-45 opacity-20 animate-vintage-pulse animation-delay-300"></div>
+                <div className="absolute top-1/2 left-16 w-4 h-4 bg-vintage-gray-300 rotate-45 opacity-15 animate-vintage-pulse animation-delay-500"></div>
+                <div className="absolute bottom-1/3 right-24 w-10 h-10 border-2 border-vintage-gray-300 opacity-20 animate-vintage-pulse animation-delay-700"></div>
+
+                {/* Flowing Curves (using CSS transforms) */}
+                <div className="absolute top-0 left-1/4 w-1 h-32 bg-gradient-to-b from-transparent via-vintage-gray-300 to-transparent opacity-20 transform rotate-12 animate-fade-in animation-delay-1000"></div>
+                <div className="absolute bottom-0 right-1/3 w-1 h-24 bg-gradient-to-t from-transparent via-vintage-gray-300 to-transparent opacity-15 transform -rotate-12 animate-fade-in animation-delay-1000"></div>
+            </div>
       {/* Navigation */}
       <nav className="relative z-10 px-4 sm:px-6 lg:px-8 py-3 border-b border-vintage-gray-200 bg-vintage-white/95 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
