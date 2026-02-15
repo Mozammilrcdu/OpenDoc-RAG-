@@ -330,7 +330,7 @@ Some suggestions:
                                         <Brain className="w-10 h-10 text-vintage-white" />
                                     </div>
                                     <h2 className="mb-4 text-2xl font-bold font-display text-vintage-black">
-                                        Welcome to DocuBot AI
+                                        Welcome to OpenDoc
                                     </h2>
                                     <p className="mb-8 leading-relaxed text-vintage-gray-600">
                                         Upload a PDF document to start analyzing and chatting with your content using advanced AI.
