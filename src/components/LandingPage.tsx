@@ -134,14 +134,26 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
       <section className="relative z-10 pt-12 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-display font-bold tracking-vintage">
-            Chat with your <br />
-            <span className="text-vintage-gray-700">documents in seconds</span>
+            Chat with your<br /><span>documents </span>
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-vintage-gray-700">in seconds</span>
           </h1>
 
-          <p className="mt-6 text-lg text-vintage-gray-600 max-w-2xl mx-auto">
-            Upload any PDF and start chatting. Get instant answers, summaries,
-            and insights without reading hundreds of pages.
-          </p>
+          {/* Enhanced decorative elements around hero */}
+            <div className="relative py-4 sm:py-6">
+                <div className="decorative-line w-16 sm:w-20 md:w-24 mx-auto animate-fade-in animation-delay-300"></div>
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="flex space-x-1">
+                        <div className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-40"></div>
+                        <div className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-60"></div>
+                        <div className="w-1 h-1 bg-vintage-gray-400 rounded-full opacity-40"></div>
+                    </div>
+                </div>
+            </div>
+
+
+          <p className="text-base sm:text-lg md:text-xl text-vintage-gray-600 max-w-2xl mx-auto leading-relaxed animate-slide-up animation-delay-200 px-4 sm:px-0">
+            Upload any PDF and start chatting. Get instant answers, summaries, and insights without reading through hundreds of pages.
+        </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -162,6 +174,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
         </div>
       </section>
 
+      {/* Decorative Divider - Responsive */}
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <div className="max-w-4xl mx-auto">
+                <div className="flex items-center justify-center space-x-4">
+                    <div className="decorative-line flex-1"></div>
+                    <div className="decorative-dots"></div>
+                    <div className="decorative-line flex-1"></div>
+                </div>
+            </div>
+        </div>
+
       {/* Features Section */}
       <section
         ref={featuresRef}
@@ -179,24 +202,29 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToChat }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div key={index} className="card-feature">
-                <div className="flex items-start space-x-4">
-                  <div className="w-9 h-9 bg-vintage-gray-100 rounded-lg flex items-center justify-center">
-                    <feature.icon className="w-4 h-4 text-vintage-gray-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-vintage-black">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-vintage-gray-600 mt-1">
-                      {feature.description}
-                    </p>
-                  </div>
+          {features.map((feature, index) => (
+            <div key={index} className="card-feature group">
+              <div className="flex items-start space-x-4">
+                <div className="w-9 h-9 bg-vintage-gray-100 rounded-lg flex items-center justify-center
+                                transition-colors duration-300 group-hover:bg-vintage-black">
+                  <feature.icon
+                    className="w-4 h-4 text-vintage-gray-600
+                               transition-colors duration-300 group-hover:text-vintage-white"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-vintage-black">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-vintage-gray-600 mt-1">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+
         </div>
       </section>
 
